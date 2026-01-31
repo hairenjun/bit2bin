@@ -19,6 +19,56 @@ func isBitString(s string) bool {
 	return true
 }
 
+func convertStringToBin(bitString, outputPath string) error {
+	// Create output file
+	outFile, err := os.Create(outputPath)
+	if err != nil {
+		return fmt.Errorf("failed to create output: %w", err)
+	}
+	defer outFile.Close()
+
+	var currentByte byte
+	bitCount := 0
+	totalBytesWritten := 0
+
+	for _, r := range bitString {
+		// Only process '0' and '1'
+		if r == '0' || r == '1' {
+			currentByte <<= 1
+			if r == '1' {
+				currentByte |= 1
+			}
+			bitCount++
+
+			// Every 8 bits, write exactly one byte
+			if bitCount == 8 {
+				_, err := outFile.Write([]byte{currentByte})
+				if err != nil {
+					return err
+				}
+				bitCount = 0
+				currentByte = 0
+				totalBytesWritten++
+			}
+		}
+	}
+
+	// PADDING: If bitCount > 0, pad with zeros
+	if bitCount > 0 {
+		paddingNeeded := 8 - bitCount
+		currentByte <<= paddingNeeded
+		_, err := outFile.Write([]byte{currentByte})
+		if err != nil {
+			return err
+		}
+		totalBytesWritten++
+		fmt.Printf("Note: Padded last byte with %d zeros to complete the byte.\n", paddingNeeded)
+	}
+
+	fmt.Printf("Successfully wrote %d bytes to %s\n", totalBytesWritten, outputPath)
+	return nil
+}
+
 func main() {
 	// 1. Check for command line arguments
 	if len(os.Args) < 3 {
