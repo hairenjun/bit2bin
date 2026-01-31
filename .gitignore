@@ -1,0 +1,31 @@
+# Binaries for this project
+bit2bin-linux-amd64
+bit2bin-linux-arm64
+bit2bin-windows-amd64.exe
+bit2bin-windows-arm64.exe
+
+# Build output directory
+build/
+
+# Generic binary files (tool generates these)
+*.bin
+
+# Test input/output files
+test-*.txt
+test-*.bin
+
+# Go standard entries
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Sisyphus orchestration system
+.sisyphus/

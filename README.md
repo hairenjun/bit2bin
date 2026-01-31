@@ -1,6 +1,4 @@
 # bit2bin
-[![Go Version](https://img.shields.io/github/go-mod/go-version/hairenjun/bit2bin)](https://github.com/hairenjun/bit2bin) [![Go Reference](https://pkg.go.dev/badge/hairenjun/bit2bin.svg)](https://pkg.go.dev/hairenjun/bit2bin) [![License](https://img.shields.io/github/license/hairenjun/bit2bin)](LICENSE)
-
 A high-performance command-line utility written in Go that converts text files containing bit sequences (0s and 1s) into actual binary files.
 
 ## Features
@@ -160,33 +158,10 @@ The input file should contain only the characters `0` and `1`. Any other charact
 
 The output file contains raw binary data. Each group of 8 bits from the input produces exactly 1 byte in the output. If the final group has fewer than 8 bits, it is padded with zeros to complete the byte.
 
-## Contributing
 
-Contributions are welcome! To contribute to bit2bin:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Run tests to ensure everything works
-5. Commit your changes (`git commit -m 'Add amazing feature'`)
-6. Push to the branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
 
-### Development Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/hairenjun/bit2bin.git
-cd bit2bin
-
-# Build the project
-make all
-
-# Run the binary
-./build/bit2bin-linux-amd64 input.txt output.bin
-```
-
-### Testing
+## Testing
 
 To test your changes:
 
@@ -204,6 +179,5 @@ xxd test_output.bin
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
 
-Copyright (c) 2025 bit2bin contributors
