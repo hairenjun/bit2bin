@@ -28,7 +28,7 @@ echo -n "0101010100110010" > input.txt
 
 ### Pre-compiled Binaries
 
-Download the appropriate binary for your platform from the [Releases](https://github.com/bit2bin/bit2bin/releases) section:
+Download the appropriate binary for your platform from the [Releases](https://github.com/hairenjun/bit2bin/releases) section:
 
 - **Linux AMD64:** `bit2bin-linux-amd64`
 - **Linux ARM64:** `bit2bin-linux-arm64`
@@ -65,7 +65,7 @@ Binaries will be placed in the `build/` directory.
 
 ```bash
 # Install directly to your GOPATH/bin
-go install github.com/bit2bin/bit2bin@latest
+go install github.com/hairenjun/bit2bin@latest
 
 # Build for current platform
 go build -o bit2bin main.go
@@ -176,7 +176,7 @@ Contributions are welcome! To contribute to bit2bin:
 
 ```bash
 # Clone the repository
-git clone https://github.com/bit2bin/bit2bin.git
+git clone https://github.com/hairenjun/bit2bin.git
 cd bit2bin
 
 # Build the project
