@@ -72,14 +72,23 @@ func convertStringToBin(bitString, outputPath string) error {
 func main() {
 	// 1. Check for command line arguments
 	if len(os.Args) < 3 {
-		fmt.Println("Usage: bit2bin <input.txt> <output.bin>")
+		fmt.Println("Usage: bit2bin <input.txt> <output.bin>   (file input)")
+		fmt.Println("   or: bit2bin \"10101010\" output.bin    (string input)")
 		os.Exit(1)
 	}
 
-	inputPath := os.Args[1]
+	inputArg := os.Args[1]
 	outputPath := os.Args[2]
 
-	err := convertTextToBin(inputPath, outputPath)
+	var err error
+
+	// 2. Auto-detect input mode
+	if isBitString(inputArg) {
+		err = convertStringToBin(inputArg, outputPath)
+	} else {
+		err = convertTextToBin(inputArg, outputPath)
+	}
+
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 		os.Exit(1)
